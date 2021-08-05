@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="GPS_speed" customModuleProvider="target">
             <connections>
+                <outlet property="distanceLabel" destination="jKw-cb-v0m" id="V5Z-EC-bUd"/>
                 <outlet property="speedLabel" destination="LBS-tk-9UK" id="tOb-Hu-sG9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,17 +20,38 @@
             <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKw-cb-v0m">
+                    <rect key="frame" x="644" y="315" width="188" height="83"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBS-tk-9UK">
                     <rect key="frame" x="74" y="90" width="748" height="203"/>
                     <fontDescription key="fontDescription" type="system" pointSize="170"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDx-5N-w2Y">
+                    <rect key="frame" x="498" y="315" width="141" height="83"/>
+                    <state key="normal" title="Reset"/>
+                    <connections>
+                        <action selector="onClickReset:" destination="-1" eventType="touchUpInside" id="t4y-1G-z1R"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="labelColor"/>
             <constraints>
+                <constraint firstItem="jKw-cb-v0m" firstAttribute="leading" secondItem="TDx-5N-w2Y" secondAttribute="trailing" constant="5" id="3tE-Ql-k9L"/>
+                <constraint firstItem="TDx-5N-w2Y" firstAttribute="top" secondItem="LBS-tk-9UK" secondAttribute="bottom" constant="22" id="75z-J3-zgd"/>
                 <constraint firstItem="LBS-tk-9UK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="90" id="Af5-Y1-Ba1"/>
+                <constraint firstItem="jKw-cb-v0m" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="5" id="GnG-SW-zMy"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jKw-cb-v0m" secondAttribute="trailing" constant="20" id="QA6-LT-sxP"/>
+                <constraint firstAttribute="bottom" secondItem="TDx-5N-w2Y" secondAttribute="bottom" constant="16" id="VPS-Vq-Zuv"/>
+                <constraint firstItem="TDx-5N-w2Y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="454" id="bHu-yY-bUh"/>
+                <constraint firstItem="jKw-cb-v0m" firstAttribute="top" secondItem="LBS-tk-9UK" secondAttribute="bottom" constant="22" id="gkV-MK-hNK"/>
+                <constraint firstItem="jKw-cb-v0m" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="600" id="j9h-71-wH0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LBS-tk-9UK" secondAttribute="trailing" constant="30" id="uyA-Ms-Bz8"/>
                 <constraint firstItem="LBS-tk-9UK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="yWI-Ct-HUP"/>
             </constraints>
