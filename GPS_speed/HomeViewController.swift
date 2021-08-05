@@ -22,7 +22,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isIdleTimerDisabled = true
-        print("VIEW DID LOAD")
         locationManager.delegate = self
         self.locationManager.requestAlwaysAuthorization()
         // For use in foreground
