@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="GPS_speed" customModuleProvider="target">
             <connections>
                 <outlet property="distanceLabel" destination="jKw-cb-v0m" id="V5Z-EC-bUd"/>
+                <outlet property="meanSpeedLabel" destination="wvs-US-VXj" id="Ixe-aQ-24C"/>
                 <outlet property="speedLabel" destination="LBS-tk-9UK" id="tOb-Hu-sG9"/>
+                <outlet property="unitLabel" destination="mIt-WI-VY0" id="zWp-jQ-9VM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,46 +24,65 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKw-cb-v0m">
-                    <rect key="frame" x="644" y="315" width="188" height="83"/>
+                    <rect key="frame" x="273" y="349" width="132" height="42"/>
                     <fontDescription key="fontDescription" type="system" pointSize="35"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBS-tk-9UK">
-                    <rect key="frame" x="74" y="90" width="748" height="203"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="speed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBS-tk-9UK">
+                    <rect key="frame" x="58" y="116" width="826" height="183"/>
                     <fontDescription key="fontDescription" type="system" pointSize="170"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDx-5N-w2Y">
-                    <rect key="frame" x="498" y="315" width="141" height="83"/>
+                    <rect key="frame" x="20" y="343" width="245" height="55"/>
                     <state key="normal" title="Reset"/>
                     <connections>
                         <action selector="onClickReset:" destination="-1" eventType="touchUpInside" id="t4y-1G-z1R"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="meanSpeed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvs-US-VXj">
+                    <rect key="frame" x="654" y="349" width="181" height="42"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Km/h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIt-WI-VY0">
+                    <rect key="frame" x="627" y="48" width="130" height="78"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="labelColor"/>
             <constraints>
-                <constraint firstItem="jKw-cb-v0m" firstAttribute="leading" secondItem="TDx-5N-w2Y" secondAttribute="trailing" constant="5" id="3tE-Ql-k9L"/>
-                <constraint firstItem="TDx-5N-w2Y" firstAttribute="top" secondItem="LBS-tk-9UK" secondAttribute="bottom" constant="22" id="75z-J3-zgd"/>
-                <constraint firstItem="LBS-tk-9UK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="90" id="Af5-Y1-Ba1"/>
-                <constraint firstItem="jKw-cb-v0m" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="5" id="GnG-SW-zMy"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jKw-cb-v0m" secondAttribute="trailing" constant="20" id="QA6-LT-sxP"/>
+                <constraint firstItem="mIt-WI-VY0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="0Gi-W4-P4b"/>
+                <constraint firstItem="jKw-cb-v0m" firstAttribute="leading" secondItem="TDx-5N-w2Y" secondAttribute="trailing" constant="8" id="3tE-Ql-k9L"/>
+                <constraint firstItem="TDx-5N-w2Y" firstAttribute="top" secondItem="LBS-tk-9UK" secondAttribute="bottom" constant="44" id="75z-J3-zgd"/>
+                <constraint firstAttribute="bottom" secondItem="wvs-US-VXj" secondAttribute="bottom" constant="23" id="8ZZ-aG-Wbj"/>
+                <constraint firstItem="LBS-tk-9UK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="68" id="Af5-Y1-Ba1"/>
+                <constraint firstItem="mIt-WI-VY0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="627" id="D0T-UW-0zu"/>
+                <constraint firstItem="jKw-cb-v0m" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="11" id="GnG-SW-zMy"/>
+                <constraint firstItem="wvs-US-VXj" firstAttribute="top" secondItem="mIt-WI-VY0" secondAttribute="bottom" constant="223" id="Lex-tv-jzL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wvs-US-VXj" secondAttribute="trailing" constant="61" id="MRv-Oz-vtB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mIt-WI-VY0" secondAttribute="trailing" constant="139" id="SYO-Fa-HDE"/>
                 <constraint firstAttribute="bottom" secondItem="TDx-5N-w2Y" secondAttribute="bottom" constant="16" id="VPS-Vq-Zuv"/>
-                <constraint firstItem="TDx-5N-w2Y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="454" id="bHu-yY-bUh"/>
-                <constraint firstItem="jKw-cb-v0m" firstAttribute="top" secondItem="LBS-tk-9UK" secondAttribute="bottom" constant="22" id="gkV-MK-hNK"/>
-                <constraint firstItem="jKw-cb-v0m" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="600" id="j9h-71-wH0"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LBS-tk-9UK" secondAttribute="trailing" constant="30" id="uyA-Ms-Bz8"/>
-                <constraint firstItem="LBS-tk-9UK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="yWI-Ct-HUP"/>
+                <constraint firstItem="TDx-5N-w2Y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="bHu-yY-bUh"/>
+                <constraint firstItem="jKw-cb-v0m" firstAttribute="top" secondItem="LBS-tk-9UK" secondAttribute="bottom" constant="50" id="gkV-MK-hNK"/>
+                <constraint firstItem="jKw-cb-v0m" firstAttribute="top" secondItem="mIt-WI-VY0" secondAttribute="bottom" constant="223" id="iHB-72-gk1"/>
+                <constraint firstItem="jKw-cb-v0m" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="273" id="j9h-71-wH0"/>
+                <constraint firstItem="mIt-WI-VY0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="mMa-sy-cKY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LBS-tk-9UK" secondAttribute="trailing" constant="12" id="uyA-Ms-Bz8"/>
+                <constraint firstItem="LBS-tk-9UK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="58" id="yWI-Ct-HUP"/>
             </constraints>
             <point key="canvasLocation" x="-97.767857142857139" y="102.89855072463769"/>
         </view>
     </objects>
     <resources>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
